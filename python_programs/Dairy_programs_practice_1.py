@@ -21,7 +21,7 @@ print(sum==prod)
 
 '''
 
-
+'''
 l  = [[1,2,3,4],[4,3,2,1],[7,8,9,6],[6,5,4,3]]
 
 k  = 0
@@ -38,3 +38,33 @@ for i in range(len(l)):
 
 print(left_diag)
 print(right_diag)
+'''
+
+#two sum using brute force approach
+
+l = [2,7,11,15]
+target = 9
+
+'''
+for i in range(len(l)):
+    for j in range(i,len(l)):
+        if l[i]+l[j] == target:
+            print(l[i],' + ',l[j],' = ',target)
+
+'''
+
+#hashing using dict
+
+d = {}
+
+for i,j in enumerate(l):
+    comp = target-j
+    if comp in d:
+        print(d[comp],i)
+    d[j]=i
+
+
+
+
+
+
