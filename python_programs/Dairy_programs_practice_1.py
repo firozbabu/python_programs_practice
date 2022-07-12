@@ -42,9 +42,10 @@ print(right_diag)
 
 #two sum using brute force approach
 
+'''
 l = [2,7,11,15]
 target = 9
-
+'''
 '''
 for i in range(len(l)):
     for j in range(i,len(l)):
@@ -55,6 +56,7 @@ for i in range(len(l)):
 
 #hashing using dict
 
+'''
 d = {}
 
 for i,j in enumerate(l):
@@ -63,6 +65,30 @@ for i,j in enumerate(l):
         print(d[comp],i)
     d[j]=i
 
+'''
+
+
+"""
+array rotation [1,2,3,4,5,6,7] => [7,6,5,4,3,2,1]
+
+"""
+
+#approach_1
+
+k = [1,2,3,4,5,6,7,8]
+num = int(input())
+
+'''
+for  i in range(num):
+    k.insert(0,k.pop())
+print(k)
+'''
+
+#approach_2
+
+num = num%len(k)
+k[:] = k[-num:]+k[:-num]
+print(k)
 
 
 
