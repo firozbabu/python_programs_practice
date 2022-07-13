@@ -75,20 +75,23 @@ array rotation [1,2,3,4,5,6,7] => [7,6,5,4,3,2,1]
 
 #approach_1
 
+'''
 k = [1,2,3,4,5,6,7,8]
 num = int(input())
 
-'''
 for  i in range(num):
     k.insert(0,k.pop())
 print(k)
-'''
+
 
 #approach_2
 
 num = num%len(k)
 k[:] = k[-num:]+k[:-num]
 print(k)
+
+
+'''
 
 
 
