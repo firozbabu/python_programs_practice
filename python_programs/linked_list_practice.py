@@ -115,9 +115,40 @@ class Single:
         else:
             print('Linked list is empty')
 
+    def get_middle_element(self):
 
+        fast_pointer = self.head
+        slow_pointer = self.head
+        while fast_pointer.next and fast_pointer.next.next:
+            fast_pointer = fast_pointer.next.next
+            slow_pointer = slow_pointer.next
+
+        return slow_pointer.data
+
+
+    def reverse(self):
+
+        current_node = self.head
+        previous_node = None
+        next_node = None
+
+        while current_node:
+
+            next_node = current_node.next
+            current_node.next = previous_node
+            previous_node = current_node
+            current_node = next_node
+
+        self.head = previous_node
+
+
+
+    
 
 sll = Single()
-for i in [1,2,3,4,5,6,7,8,9]:
+for i in [1,2,3,4,5,6,7,8,9,5,3,6,2,7,8,2,3,5,6,9,9,1,4,0]:
     sll.addnode(i)
+sll.display()
+print(sll.get_middle_element())
+sll.reverse()
 sll.display()

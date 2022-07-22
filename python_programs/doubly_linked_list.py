@@ -113,6 +113,32 @@ class Doubly:
                 count+=1
             return 'no match found in the ll'
 
+    def remove_duplicates(self):
+
+        nodecount={}
+        currentnode = self.head
+        while True:
+            if currentnode.value not in nodecount.keys():
+                nodecount[currentnode.value] = 1
+            else:
+                nodecount[currentnode.value]+=1
+
+            if currentnode.next is None:
+                while True:
+                    if currentnode.prev is None:
+                        break
+                    previousnode = currentnode.prev
+                    if nodecount[currentnode.value]>1:
+                        currentnode.prev.next = currentnode.next
+                        if currentnode.next is not None:
+                            currentnode.next.prev = currentnode.prev
+                        currentnode.next = None
+                        currentnode.prev = None
+                        nodecount[currentnode.value]-=1
+                    currentnode = previousnode
+                break
+        currentnode = currentnode.next
+
     def delete(self,location):
 
         if self.head is None:
@@ -153,23 +179,30 @@ class Doubly:
                 
 t = Doubly()
 t.doubly(5)
-print([i.value for i in t])
+#print([i.value for i in t])
 t.insert(6,1)
-print([i.value for i in t])
+#print([i.value for i in t])
 t.insert(100,0)
-print([i.value for i in t])
+#print([i.value for i in t])
 t.insert(23,2)
+#print([i.value for i in t])
+t.insert(3,2)
+t.insert(2,2)
+t.insert(2,2)
+t.insert(3,2)
+t.insert(3,2)
+t.insert(2,2)
 print([i.value for i in t])
+t.remove_duplicates()
 
-t.traverse()
 
-t.reverse()
-print(t.search(23))
+#t.reverse()
+#print(t.search(23))
 
-t.delete(1)
-print([i.value for i in t])
-t.delete(1)
-print([i.value for i in t])
-t.deleteDll()
-t.delete(1)
-print([i.value for i in t])
+#t.delete(1)
+#print([i.value for i in t])
+#t.delete(1)
+#print([i.value for i in t])
+#t.deleteDll()
+#t.delete(1)
+#print([i.value for i in t])
