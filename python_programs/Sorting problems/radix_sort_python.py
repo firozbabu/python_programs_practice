@@ -48,8 +48,9 @@ def radix(inputarray):
     return outputarray
 
 
-
-input = [2,20,61 ,997,619]
+input = [963,5,34,254,23]
+#input = [2,20,61 ,997,619]
+#arr = [963,5,34,254,23]
 print(input)
 sorted = radix(input)
 print(sorted)
